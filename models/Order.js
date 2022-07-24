@@ -1,7 +1,7 @@
 const mongoose = reqire("mongoose");
 const OrderSchema = new mongoose.Schema(
   {
-    userId: { type:String, required: true},
+    userId: { type: String, required: true},
     products: [
       {
         productId: {
@@ -13,8 +13,8 @@ const OrderSchema = new mongoose.Schema(
         }
       }
     ],
-    amount: {type:Number, required: true},
-    address:{type:Object, required: true},
+    amount: {type: Number, required: true},
+    address:{type: Object, required: true},
     status: {type: String, default: "pendding"};
 
 
