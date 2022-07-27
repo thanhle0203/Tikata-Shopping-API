@@ -64,11 +64,11 @@ router.get("/", verifyTokenAndAdmin, async (req,res) => {
 // GET MONTHLY INCOME
 router.get("/income", verifyTokenAndAdmin, async (req,res) => {
   const data = new Date();
-  const lastMonth = new Date(date.setMonth(date.getMonth()-1));
+  const lastMonth = new Date(data.setMonth(data.getMonth()-1));
   const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth()-1));
 
   try {
-    const imcome = await Order.aggregate([
+    const income = await Order.aggregate([
       { $match: { createdAt: { $gte: previousMonth }}},
         {
             $project: {
