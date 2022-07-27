@@ -1,4 +1,4 @@
-const mongoose = reqire("mongoose");
+const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema(
   {
@@ -6,7 +6,7 @@ const ProductSchema = new mongoose.Schema(
     desc: {type: String, required: true},
     img: {type: String, required: true},
     categories: {type: Array, required:true},
-    size: {type: String},
+    memories: {type: String},
     color: {type: String, required:true}, 
     price: {type: String, required:true},
   },
