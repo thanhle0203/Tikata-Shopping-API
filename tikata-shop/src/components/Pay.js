@@ -26,7 +26,7 @@ const Pay = () => {
         console.log(err);
       }
     };
-    stripeToken && makeRequest
+    stripeToken && makeRequest();
 
   }, [stripeToken])
 
@@ -41,7 +41,7 @@ const Pay = () => {
     >
       <StripeCheckout 
         name='Tikata Shop' 
-        image='https://escforumwiki.com/images/archive/d/d0/20130217203312%21Flag_of_Bitland.png'
+        image='https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Info_icon_002.svg/1200px-Info_icon_002.svg.png'
         billingAddress
         shippingAddress
         description='Your total is $1099'
