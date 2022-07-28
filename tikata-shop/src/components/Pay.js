@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 const KEY = "pk_live_CL6YxM22sLtwJtpi6Fc5sqvF";
 
 const Pay = () => {
+  const [stripeToken, setStripeToken] = useState(null);
+
   const onToken = (token) => {
-    console.log(token);
-  }
+    setStripeToken(token);
+  };
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await axios.post(
+          "http://localhost:8000/api/checkout/payment", {
+            tokenId: stripeToken.id,
+            amount: 2399,
+
+          }
+        );
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    stripeToken && makeRequest
+
+  }, [stripeToken])
+
   return (
     <div
         style = {{
